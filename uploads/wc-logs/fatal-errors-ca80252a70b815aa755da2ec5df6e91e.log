@@ -1,0 +1,26 @@
+2018-01-31T03:57:03+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-01-31T10:22:19+00:00 CRITICAL Call to a member function get_items() on string
+
+2018-01-31T11:17:44+00:00 CRITICAL Call to a member function get_short_description() on null
+
+2018-01-31T11:37:44+00:00 CRITICAL Call to a member function get_data() on integer
+
+2018-01-31T11:38:20+00:00 CRITICAL Call to a member function get_data() on integer
+
+2018-01-31T11:38:42+00:00 CRITICAL Call to a member function get_data() on integer
+
+2018-02-05T08:45:17+00:00 CRITICAL Maximum execution time of 30 seconds exceeded
+
+2018-02-07T09:25:52+00:00 CRITICAL Call to undefined function account()
+
+2018-02-07T09:26:30+00:00 CRITICAL Call to undefined function account()
+
+2018-02-07T09:26:46+00:00 CRITICAL Call to undefined function is_my_account()
+
+2018-02-12T05:04:00+00:00 CRITICAL Call to undefined function get_sub_fields()
+
+2018-02-13T05:07:32+00:00 CRITICAL Call to a member function get_items() on boolean
+
+2018-02-14T12:49:05+00:00 CRITICAL Call to a member function get_row() on null
+
