@@ -39,28 +39,28 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && !empty( $_POST['action'] ) && $_POS
         }
             
     }
-    if ( !empty( $_POST['first_name'] ) ) {
-    	$display_name = esc_attr( $_POST['first_name'] );
-        update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first_name'] ) );
+    if ( !empty( $_POST['first-name'] ) ) {
+    	$display_name = esc_attr( $_POST['first-name'] );
+        update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
     }
     if ( !empty( $_POST['last-name'] ) ) {
     	$display_name .= ' ' . esc_attr( $_POST['last-name'] );
         update_user_meta( $current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
     }
-     if ( $birthday_date ) {
-     	wp_update_user( array ('ID' => $current_user->ID, 'birthday_date' => esc_attr( $birthday_date ) ) );
+     if (!empty( $_POST['billing_address_1'] ) ) {
+     	update_user_meta( $current_user->ID, 'billing_address_1', esc_attr( $_POST['billing_address_1'] ) );
     }
-    if ( !empty( $_POST['phone_number'] ) ) {
-        update_user_meta( $current_user->ID, 'phone_number', esc_attr( $_POST['phone_number'] ) );
+    if ( !empty( $_POST['billing_postcode'] ) ) {
+        update_user_meta( $current_user->ID, 'billing_postcode', esc_attr( $_POST['billing_postcode'] ) );
     }
-    if ( !empty( $_POST['address'] ) ) {
-        update_user_meta( $current_user->ID, 'address', esc_attr( $_POST['address'] ) );
+    if ( !empty( $_POST['user_specialisation'] ) ) {
+        update_user_meta( $current_user->ID, 'specialisation', esc_attr( $_POST['user_specialisation'] ) );
     }
-     if ( !empty( $_POST['contact'] ) ) {
-        update_user_meta( $current_user->ID, 'contact', esc_attr( $_POST['contact'] ) );
+     if ( !empty( $_POST['billing_country'] ) ) {
+        update_user_meta( $current_user->ID, 'billing_country', esc_attr( $_POST['billing_country'] ) );
     }
-    if( !empty($_POST['country']) ) {
-        update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
+    if ( !empty(  $_POST['user-profile-picture']) ) {
+        update_user_meta( $current_user->ID, 'user-profile-picture', esc_attr( $_POST['user-profile-picture'] ) );
     }
     /* Let plugins hook in, like ACF who is handling the profile picture all by itself. Got to love the Elliot */
     do_action('edit_user_profile_update', $current_user->ID);

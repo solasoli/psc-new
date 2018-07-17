@@ -1,0 +1,8 @@
+2018-07-17T13:20:22+00:00 CRITICAL Uncaught Error: Call to undefined function check_page_security() in D:\localdev\htdocs\psc-new\wp-content\themes\psc\edit-profile-test.php:5
+Stack trace:
+#0 D:\localdev\htdocs\psc-new\wp-includes\template-loader.php(74): include()
+#1 D:\localdev\htdocs\psc-new\wp-blog-header.php(19): require_once('D:\\localdev\\htd...')
+#2 D:\localdev\htdocs\psc-new\index.php(17): require('D:\\localdev\\htd...')
+#3 {main}
+  thrown
+

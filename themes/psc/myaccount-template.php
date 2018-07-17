@@ -105,8 +105,8 @@ $uriSegments = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
                         <?php if( is_user_logged_in() ){ ?>
                             <ul class="dashboard-menu hidden-xs">
                                 <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) { ?>
-                                    <?php if($endpoint == 'orders'){ ?>
-                                        <li class="<?=!is_wc_endpoint_url( 'orders' ) ? "" : "";?>"><a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>">Dashboard</a></li>
+                                    <?php if($endpoint == 'dashboard'){ ?>
+                                        <li class="<?=!is_wc_endpoint_url( 'dashboard' ) ? "" : "";?>"><a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>">Dashboard</a></li>
                                     <?php } ?>
                                    
                                 <?php } ?>

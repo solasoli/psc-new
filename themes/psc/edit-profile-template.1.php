@@ -1,8 +1,8 @@
 <?php
 
-/* Template Name: Edit Profile 2 */
+/* Template Name: Edit Profile 1 */
 
-require_once(ABSPATH.'wp-content/themes/psc/update-profile.php');
+require_once(ABSPATH.'wp-content/themes/psc/update-profile-1.php');
 
 
 ?>
@@ -12,6 +12,8 @@ require_once(ABSPATH.'wp-content/themes/psc/update-profile.php');
 <?php get_template_part('parts/dashboard/user'); ?>
 
 <?php if ( !have_posts() ) get_template_part( 'parts/notice/no-posts' ); ?>
+
+
 
 <?php while (have_posts()) : the_post(); ?>
 <style type="text/css">
@@ -70,10 +72,11 @@ h3 {
 }
 
 </style>
+
 	<section id="dashboard-content">
 		<div class="container">
 		<div class="row">
-
+<p>hey hey</p>
 			<?php get_template_part( 'parts/dashboard/edit-profile/intro' ); ?>
 
 			<?php if( !empty( $_GET['updated'] ) ): ?>
@@ -96,7 +99,7 @@ h3 {
 
 						<?php $current_user = wp_get_current_user(); ?>
 
-						<form method="post" id="adduser" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
+						<form method="post" id="adduser" action="<?php the_permalink(); ?>"  enctype="multipart/form-data">
 
 							<div class="row" style="position: relative;">
 								<div class="col-md-12" style="text-align: center;position: relative;">
@@ -110,7 +113,7 @@ h3 {
 								     <div class="p-image">
 								       <i class="fa fa-camera upload-button"></i>
 								       	<div class="hide">
-								        	<input class="file-upload" type="file" name="photo" accept="image/*"/>
+								        	<input class="file-upload user-profile-picture" type="file" name="user-profile-picture" id="user-profile-picture" accept="image/*"/>
 								    	</div>
 								     </div>
 
@@ -122,9 +125,9 @@ h3 {
 								<h3 ><?php _e('Personal info', 'textdomain'); ?></h3>
 
 								<div class="form-group row">
-										<label for="email" class="col-sm-4 col-form-label"><?php _e('E-mail *', 'textdomain'); ?></label>
+										<label for="email" class="col-sm-4 col-form-label">Email</label>
 										<div class="col-sm-6">
-											<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" value="<?php the_author_meta( 'user-email', $current_user->ID ); ?>" />
+											<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
 										</div>
 										
 				       
@@ -132,37 +135,31 @@ h3 {
 									<div class="form-group row">
 										<label for="first_name" class="col-sm-4 col-form-label">First Name</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control woocommerce-Input woocommerce-Input--text input-text" name="account_first_name"id="account_first_name" placeholder="" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>">
+											<input type="text" class="form-control woocommerce-Input woocommerce-Input--text input-text" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="last_name" class="col-sm-4 col-form-label">Last Name</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input input-text" name="account_last_name" id="account_last_name" placeholder="" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>">
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="birthday_date" class="col-sm-4 col-form-label">Date of Birth</label>
-										<div class="col-sm-6">
-											<input   type="date" class="form-control woocommerce-Input" id="birthday_date" placeholder="" value="<?php the_author_meta( 'birthday_date', $current_user->ID ); ?>">
+											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input input-text" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="address" class="col-sm-4 col-form-label">Address</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input" id="address" placeholder="" value="<?php the_author_meta( 'address', $current_user->ID ); ?>">
+											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input" name="billing_address_1" id="billing_address_1" placeholder="" value="<?php the_author_meta( 'billing_address_1', $current_user->ID ); ?>">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="address" class="col-sm-4 col-form-label" style="visibility: hidden;">!@#$%</label>
 										<div class="col-sm-2">
-											<input type="text" class="form-control woocommerce-Input woocommerce-Input--text" id="zipcode" placeholder="zip" value="<?php the_author_meta( 'zipcode', $current_user->ID ); ?>">
+											<input type="text" class="form-control woocommerce-Input woocommerce-Input--text" name="billing_postcode" id="billing_postcode" placeholder="zip" value="<?php the_author_meta( 'billing_postcode', $current_user->ID ); ?>">
 										</div>
 									
 								
 
 												<div class="col-sm-4">
-												<select id="inputState" class="form-control woocommerce-Input--text woocommerce-Input"  value="<?php the_author_meta( 'country', $current_user->ID ); ?>">
+												<select id="billing_country" class="form-control woocommerce-Input--text woocommerce-Input"  name="billing_country" value="<?php the_author_meta( 'billing_country', $current_user->ID ); ?>">
 													<option selected>Choose...</option>
 													<option value="AF">Afghanistan</option>
 													<option value="AX">Åland Islands</option>
@@ -417,12 +414,12 @@ h3 {
 											</div>
 										</div>
 
-										<div class="form-group row">
+										<!-- <div class="form-group row">
 										<label for="contact" class="col-sm-4 col-form-label">Contact</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input" id="address" placeholder="" value="<?php the_author_meta( 'contact', $current_user->ID ); ?>">
+											<input type="text" class="form-control woocommerce-Input--text woocommerce-Input" id="contact" placeholder="" value="<?php the_author_meta( 'contact', $current_user->ID ); ?>">
 										</div>
-									</div>
+									</div> -->
 										
 								
 			
@@ -523,6 +520,7 @@ h3 {
 				            }
 				    
 				            reader.readAsDataURL(input.files[0]);
+
 				        }
 				    }
 				    
